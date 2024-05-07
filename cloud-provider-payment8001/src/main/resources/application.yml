@@ -1,0 +1,31 @@
+server:
+  port: 8001
+
+
+spring:
+  profiles:
+    active: dev
+## 时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.100.36.9:3307/cloud_pay?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    username: root
+    password: guo123
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.han.entities
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    dao: debug
+    org:
+      mybatis: debug
+
